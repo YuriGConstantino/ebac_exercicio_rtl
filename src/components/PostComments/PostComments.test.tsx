@@ -28,21 +28,21 @@ describe("Teste para o componente PostComment", () => {
 
   test("deve renderizar o primeiro comentario", async () => {
     render(<Post />);
-    const botao = screen.getByTestId("btn-comentario");
+    const botao = screen.getByTestId("submitBtn");
     const Textarea = screen.getByTestId("textArea");
     fireEvent.change(Textarea, { target: { value: mensagem } });
     fireEvent.click(botao);
-    expect(screen.getByText("Olá marilene")).toBeInTheDocument();
+    expect(screen.getByText("comentario 1")).toBeInTheDocument();
 
     mudamensagem();
   });
 
   test("deve renderizar segundo comentario", async () => {
     render(<Post />);
-    const botao = screen.getByTestId("btn-comentario");
+    const botao = screen.getByTestId("submitBtn");
     const Textarea = screen.getByTestId("textArea");
     fireEvent.change(Textarea, { target: { value: mensagem } });
     fireEvent.click(botao);
-    expect(screen.getByText("Quero um desse")).toBeInTheDocument();
+    expect(screen.getByText("comentario 2")).toBeInTheDocument();
   });
 });
